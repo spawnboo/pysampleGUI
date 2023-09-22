@@ -1,6 +1,7 @@
 # coding=utf-8
 import os
 
+import RecipeFunction.RecipeReader as Recipe_Load
 
 # 取得該資料夾下所有Recipe檔案
 def GetRecipeList(path):
@@ -13,12 +14,14 @@ def GetRecipeList(path):
             RL.append(f.split('.')[0])
     return RL
 
+def LoadRecipe(ini_path):
+    recipe_read = Recipe_Load.load_ini_YOLOV4(ini_path)
+    print (recipe_read)
 
 
 
 
 if __name__ == "__main__":
-    path = r"D:\PycharmProjects\new_ML_Flask_Server\ML_Flask_Server\DL_Train\RecipeConfig"
+    path = r"RecipeFunction\Recipe.ini"
 
-    RL =GetRecipeList(path)
-    print (RL)
+    LoadRecipe(path)

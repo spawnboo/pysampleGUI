@@ -1,4 +1,7 @@
 # coding=utf-8
+import os
+import sys
+
 import PySimpleGUI as sg
 
 import Function
@@ -32,12 +35,13 @@ tab_group_layout = [[
 #==============================================  Recipe ListBox  ================================================
 # ToDo  指定特定Recipe位置, 加入所有.ini Recipe檔案
 # [Recipe.ini]
-RecipePath = r"D:\PycharmProjects\new_ML_Flask_Server\ML_Flask_Server\DL_Train\RecipeConfig"
+RecipePath = r"C:\Users\spawnboo\PycharmProjects\new_ML_Flask_Server\ML_Flask_Server\DL_Train\RecipeConfig"
 RecipeList = Function.GetRecipeList(RecipePath)
 
 Recipe_ListBox = [sg.LBox(RecipeList,size=(50,20), key='-Recipe_ListBox-', enable_events=True)]
 
-
+# show ConsoleBox
+console_ListBox = [sg.LBox([],size=(200,20), key='-Console_ListBox-')]
 
 #==============================================  Layout  ========================================================
 layout = [
@@ -51,6 +55,9 @@ layout = [
     ],
     [
         sg.Button("Start Train", key='_StratTrainBtn_', disabled=True)
+    ],
+    [
+        sg.Column([console_ListBox], vertical_alignment='top')
     ]
           ]
 
@@ -62,7 +69,7 @@ window = sg.Window('Deep Learning By Croc', layout, default_element_size=(12, 1)
 
 while True:
     event, values = window.read()
-    print(event, values)
+    # print(event, values)
     if event == sg.WIN_CLOSED:  # 永遠不能刪除, 關閉時 關閉程式
         break
     
