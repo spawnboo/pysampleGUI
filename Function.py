@@ -5,9 +5,10 @@ import RecipeFunction.RecipeReader as Recipe_Load
 
 # 取得該資料夾下所有Recipe檔案
 def GetRecipeList(path):
+    ALLfiles = []
     RL = []
     for _, folder, files in os.walk(path):
-        ALLfiles = files
+        ALLfiles.extend(files)
 
     for f in ALLfiles:
         if f.split('.')[1] == 'ini':
@@ -16,7 +17,7 @@ def GetRecipeList(path):
 
 def LoadRecipe(ini_path):
     recipe_read = Recipe_Load.load_ini_YOLOV4(ini_path)
-    print (recipe_read)
+    return recipe_read
 
 
 
