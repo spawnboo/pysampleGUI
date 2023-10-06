@@ -16,7 +16,7 @@ def GetRecipeList(path):
     return RL
 
 def LoadRecipe(ini_path):
-    recipe_read = Recipe_Load.load_ini_YOLOV4(ini_path)
+    recipe_read = Recipe_Load.load_ini_YOLOV4_new(ini_path)
     return recipe_read
 
 

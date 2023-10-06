@@ -70,6 +70,7 @@ def load_ini_YOLOV4_new(configFilePath):
     recipe                          = edict()
     # Consumers can get config by: from config import cfg
     recipe.SQLAnnotation            = configParser.get("RECIPE","SQLAnnotation")
+    recipe.Model                    = configParser.get("RECIPE","Model")
 
     recipe.AnnotationPath           = configParser.get("RECIPE","AnnotationPath")
     recipe.ClassesPath              = configParser.get("RECIPE","ClassesPath")
